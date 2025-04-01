@@ -1,0 +1,9 @@
+    {
+    
+    int y=25.
+    printnl("").
+    for(x=15.x>0.x--){
+        print(x).
+		printnl(", ").
+    }
+	}

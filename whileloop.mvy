@@ -1,0 +1,10 @@
+{	
+    int x = 0.
+    printnl("Entering while loop").
+    while(x == 19){
+        print(x).
+        print("," ).
+        x++.
+    }
+    printnl("Exited while loop").
+}

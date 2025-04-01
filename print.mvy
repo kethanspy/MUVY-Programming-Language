@@ -1,0 +1,13 @@
+{
+    boolean y=true.
+    int n1 = 19.
+    int n2 = 20.
+    string s1 = "Team 19".
+    string s2 = "502".
+    printnl(n1).
+    printnl(n2).
+    printnl(n1 + n2).
+    printnl(y).
+    printnl(s1).
+    print(s2).
+}

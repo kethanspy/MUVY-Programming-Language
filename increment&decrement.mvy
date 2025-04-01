@@ -1,0 +1,9 @@
+{
+int x = 15.
+x++.
+printnl(x).
+
+int y=20.
+y--.
+printnl(y).
+}

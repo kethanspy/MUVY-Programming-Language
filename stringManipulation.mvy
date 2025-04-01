@@ -1,0 +1,10 @@
+{
+    string str = "SER 502 - Team 19".
+    printnl("Reversing a String").
+    printnl(reverse(str)).
+
+    string str1= "string".
+    string str2= " addition".
+    print("Concating str1 and str2").
+    printnl(concat(str1,str2)).
+}

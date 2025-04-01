@@ -1,0 +1,23 @@
+    {	
+    int x=10.
+    int y=25.
+    printnl("if ").
+    
+    if(x<y or x==10)then{
+        print("success if then").
+    }
+    print("output of else in ifelse ").
+    if(x<=y)then{
+        printnl(x+y).
+    }
+    else{
+        printnl(x-y).
+    }
+    print("output of if in ifelse ").
+    if(x>y)then{
+        printnl(x+y).
+    }
+    else{
+        printnl(x-y).
+    }
+    }

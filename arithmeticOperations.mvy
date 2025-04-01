@@ -1,0 +1,8 @@
+{
+	int Value1 = 502.
+	int Value2 = 19.
+	printnl(Value1 + Value2).
+	printnl(Value1 - Value2).
+	printnl(Value1 * Value2).
+	printnl(Value1 / Value2).
+}

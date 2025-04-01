@@ -1,0 +1,93 @@
+:- table expression/2,style/2.
+
+%  Program defined with block using curly braces at start and end of the program. 
+program --> block.
+block --> ['{'], statement, ['}'].
+				
+% Statement rule is defined having command declaration.                
+statement --> command, statement.
+statement --> command.
+
+% Defining the single variable and multiple variable declarations.
+declaration --> datatype, variable, [=], result.
+declaration --> datatype, variable.
+
+% Defines value assigned to a variable.
+result --> ["true"].
+result --> ["false"].
+result --> [N], {integer(N)}.
+result --> [I], {atom(I)}.
+
+% Defining the datatypes used in this program.
+datatype --> [int].
+datatype --> [boolean].
+datatype --> [string].
+
+% Defining the variable and number.
+variable -->  [I], {atom(I)}.
+number --> [N], {integer(N)}.
+
+% Declaration of boolean expression used in condition and loop statements.
+commad_bool --> boolean_expression.
+commad_bool --> boolean_expression, [and], commad_bool.
+commad_bool --> boolean_expression, [or], commad_bool.
+
+% Defining the conditional statements, for loop, while loop and printing the output.
+command --> declaration.
+command --> command_assign.
+command --> [if], ['('], commad_bool, [')'], [then], block.
+command --> [if], ['('], commad_bool, [')'], [then], block, [else], block.
+command --> [for], ['('], mvy_xpress, [')'], block.
+command --> [for], ['('], variable, [in] ,[range], ['('], number , [','] , number ,[')'],[')'],block.
+command --> [while], ['('], commad_bool, [')'], block.
+command --> block.
+command --> [print], ['('], expression, [')'], ['.'].
+command --> [printnl], ['('], expression, [')'], ['.'].
+command --> [printnl], ['('],  [')'], ['.'].
+
+% For loop expression.
+mvy_xpress --> command_assign,[.], commad_bool, [.], command_assign.
+
+% Defining the boolean expression with the comparator operators.
+boolean_expression --> expression.
+boolean_expression --> expression, [=], expression.
+boolean_expression --> expression, [!],[=], expression.
+boolean_expression --> expression, [>], expression.
+boolean_expression --> expression, [<], expression.
+boolean_expression --> expression, [>],[=], expression.
+boolean_expression --> expression, [<], [=], expression.
+boolean_expression --> [not], boolean_expression.
+boolean_expression --> [true].
+boolean_expression --> [false].
+
+% Defining the arithmetic operations.
+expression --> variable, [=], expression.
+expression --> variable, [+],[+].
+expression --> variable, [-],[-].
+expression --> [concat], ['('],charstring, [','],charstring,  [')'].
+expression --> [reverse], ['('],charstring,  [')'].
+expression --> expression, [-], style.
+expression --> expression, [+], style.
+expression --> style.
+
+style --> style, [*], membr.
+style --> style, [/], membr.
+style --> ['('], expression, [')'].
+style --> membr.
+
+% Defining the member with the variable and number.
+membr --> result, !.
+membr --> variable.
+
+% Defining the assignment expression used in command block.
+command_assign --> variable, [=], expression.
+command_assign --> variable, [-],[-].
+command_assign --> variable, [+],[+].
+command_assign --> variable,[=], command_ternary.
+
+% Defining the ternary operation.
+command_ternary -->  ['('], commad_bool, [')'], [?], expression, [:], expression.
+
+% Charstring can be assigned with the result and variable.
+charstring --> result.
+charstring --> variable.
